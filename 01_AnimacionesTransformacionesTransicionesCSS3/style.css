@@ -1,0 +1,101 @@
+
+/* 1. Reset básico y Contenedor */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* 2. BLOQUE: Card */
+.card {
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    /* ANIMACIÓN: La tarjeta flota sola */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* 3. ELEMENTO: Contenedor de imagen */
+.card__image-container {
+    height: 200px;
+    overflow: hidden; /* Importante para que la transformación no se salga */
+}
+
+/* 4. ELEMENTO: Imagen */
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* TRANSICIÓN: Preparamos el suavizado para la transformación */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* TRANSFORMACIÓN: Al pasar el mouse por la CARD, la IMAGEN crece y rota */
+.card:hover .card__image {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 5. ELEMENTO: Contenido */
+.card__content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card__title {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.card__text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* 6. ELEMENTO: Botón (Base estructural) */
+.card__button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: #bdc3c7; /* Color gris por defecto */
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    /* TRANSICIÓN: Para que el cambio de color sea suave */
+    transition: all 0.3s ease;
+}
+
+/* 7. MODIFICADOR: Botón Activo (Solo cambios visuales) */
+.card__button--active {
+    background-color: #3498db; /* Este color gana al gris de arriba */
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.card__button--active:hover {
+    background-color: #2980b9;
+    /* transform: translateY(-15px); Pequeña transformación al hover */
+    transform: scale(1.10);
+}
+
+/* 8. KEYFRAMES: Definición de la animación de la tarjeta */
+/* Ver la definicion de la clase .card */
+/* Linea: 
+    animation: float 4s ease-in-out infinite;
+} */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
