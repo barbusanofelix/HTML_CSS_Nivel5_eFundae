@@ -1,0 +1,120 @@
+/* ==========================================================================
+   ESTILOS DE MAQUETACIÓN (LAYOUT)
+   Objetivo: Definir el escenario donde ocurrirán las interacciones.
+   ========================================================================== */
+
+.container {
+    background-color: blanchedalmond;
+    max-width: 900px; /* Limita el ancho para mantener legibilidad en pantallas grandes */
+    margin: 40px auto; /* Centra el contenedor horizontalmente con margen superior/inferior */
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+}
+
+.lab {
+    /* Usamos Grid para organizar las tarjetas de forma responsiva sin Media Queries */
+    display: grid;
+    /* repeat(auto-fit...): Crea tantas columnas como quepan, mínimo de 200px cada una */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; /* Espaciado uniforme entre los elementos del laboratorio */
+    margin-top: 40px;
+}
+
+/* ==========================================================================
+   BLOQUE BEM: lab__box (Estructura Base)
+   Objetivo: Definir el estado "A" (inicial) de todos los recuadros.
+   ========================================================================== */
+
+.lab__box {
+    width: 150px;
+    height: 150px;
+    background-color: #34495e; /* Color oscuro neutral para resaltar cambios */
+    color: white;
+    /* Flexbox interno: Para centrar el texto dentro del recuadro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 8px;
+    cursor: pointer; /* Feedback visual: indica que el elemento es interactivo */
+}
+
+/* ==========================================================================
+   APLICACIÓN DE PROPIEDADES DE TRANSICIÓN (DESGLOSADAS)
+   Objetivo: Demostrar cada propiedad de la especificación CSS3 por separado.
+   ========================================================================== */
+
+/* 1. Modificador COLOR */
+.lab__box--color {
+    /* transition-property: Aísla la animación solo al fondo (optimiza rendimiento) */
+    transition-property: background-color;
+    /* transition-duration: Tiempo que tarda en llegar al color final */
+    transition-duration: 0.5s;
+}
+.lab__box--color:hover {
+    background-color: #e74c3c; /* Cambio a rojo suavemente */
+}
+
+/* 2. Modificador TAMAÑO */
+.lab__box--size {
+    /* Especificamos ambas dimensiones para una transición controlada */
+    transition-property: width, height;
+    transition-duration: 0.4s;
+    /* transition-timing-function: Define la curva de velocidad. 
+       cubic-bezier: Crea un efecto 'elástico' que supera el valor final y regresa */
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.lab__box--size:hover {
+    width: 180px;
+    height: 180px;
+}
+
+/* 3. Modificador OPACIDAD */
+.lab__box--opacity {
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    /* transition-delay: Retrasa el inicio de la animación. 
+       Útil para evitar disparos accidentales en movimientos rápidos del mouse */
+    transition-delay: 0.2s;
+}
+.lab__box--opacity:hover {
+    opacity: 0.5; /* Crea un efecto de desvanecimiento o transparencia */
+}
+
+/* 4. Modificador POSICIÓN */
+.lab__box--position {
+    /* Shorthand: propiedad | duración | curva de tiempo | retraso 
+       ease-in-out: Inicio y final lento para un movimiento más orgánico */
+    transition: transform 0.6s ease-in-out 0s;
+}
+.lab__box--position:hover {
+    /* transform: Propiedad de alto rendimiento que no afecta al flujo de otros elementos */
+    transform: translateX(50px);
+}
+
+/* ==========================================================================
+   MODIFICADOR MAESTRO: lab__box--all (Sincronización Total)
+   Objetivo: Orquestar múltiples propiedades en un único hilo de renderizado.
+   ========================================================================== */
+
+.lab__box--all {
+    /* Sincronización: Al igualar tiempos (0.6s), el navegador procesa 
+       todos los cambios simultáneamente, evitando efectos secuenciales indeseados */
+    transition: 
+        background-color 0.6s ease,
+        width 0.6s ease,
+        height 0.6s ease,
+        opacity 0.6s ease,
+        transform 0.6s ease; 
+}
+
+.lab__box--all:hover {
+    /* Estado "B": El objetivo final de todas las propiedades combinadas */
+    background-color: #e74c3c;
+    width: 180px;
+    height: 180px;
+    opacity: 0.5;
+    /* El movimiento (X) se ejecuta en perfecta armonía con el crecimiento y el color */
+    transform: translateX(50px) rotate(1deg); 
+}
