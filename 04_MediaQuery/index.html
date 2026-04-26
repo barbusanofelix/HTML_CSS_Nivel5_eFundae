@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Media Queries BEM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <article class="hero-card">
+            <div class="hero-card__width-indicator"><span id="width-value">0</span>px</div>
+            
+            <div class="hero-card__image-wrapper">
+
+                <img src="https://placehold.co/300x200" alt="Héroe" class="hero-card__img">
+            </div>
+
+            <div class="hero-card__content">
+                <h2 class="hero-card__title">Explorador Estelar</h2>
+                <p class="hero-card__description">
+                    Viaja a través de las galaxias para descubrir nuevos mundos. 
+                    Un diseño que se adapta a cualquier dispositivo, desde naves espaciales hasta smartwatches.
+                </p>
+                <button class="hero-card__button hero-card__button--primary">Contactar</button>
+            </div>
+
+        </article>
+    </main>
+    <script>
+        const widthDisplay = document.getElementById('width-value');
+        function updateWidth() {
+            widthDisplay.textContent = window.innerWidth;
+        }
+        window.addEventListener('resize', updateWidth);
+        updateWidth();
+    </script>
+
+</body>
+</html>

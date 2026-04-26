@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio Master: BEM & Responsive</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <main class="lab-container">
+
+            <header class="lab-header">
+                <h1 class="lab-header__title">Laboratorio de Diseño Web Moderno</h1>
+                <p class="lab-header__text">Explora la combinación de Flexbox, BEM y Media Queries.</p>
+            </header>
+
+            <article class="hero-card">
+
+                <div class="hero-card__indicator">
+                    <span id="width-value">0</span>px
+                </div>
+
+                <div class="hero-card__img-container">
+                    <img src="https://placehold.co/400x300/2c3e50/white?text=UX+Design" alt="Diseño" class="hero-card__image">
+                </div>
+
+                <div class="hero-card__body">
+                    <h2 class="hero-card__title">Diseño Adaptativo</h2>
+                    <p class="hero-card__description">
+                        Este componente demuestra cómo el uso de <strong>Flexbox</strong> permite
+                        cambiar el flujo de la información de vertical a horizontal sin romper el diseño.
+                    </p>
+                    <button class="hero-card__button hero-card__button--primary">
+                        Saber más
+                    </button>
+                </div>
+
+            </article>
+        </main>
+
+        <script>
+            const widthDisplay = document.getElementById('width-value');
+            function updateWidth() {
+                widthDisplay.textContent = window.innerWidth;
+            }
+            window.addEventListener('resize', updateWidth);
+            updateWidth(); // Llamada inicial
+        </script>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+/* ==========================================================================
+   ESTILOS BASE (MÓVIL POR DEFECTO)
+   ========================================================================== */
+
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Contenedor del ejercicio */
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* BLOQUE: hero-card
+   En móvil, los elementos se apilan naturalmente (display: block) */
+.hero-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Apilado vertical en móvil */
+}
+
+/* ELEMENTO: Imagen 
+   Queremos que ocupe todo el ancho en móvil */
+.hero-card__image-wrapper {
+    width: 100%;
+    height: 250px;
+}
+
+.hero-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se deforme al estirarse */
+}
+
+/* ELEMENTO: Contenido */
+.hero-card__content {
+    padding: 20px;
+    text-align: center; /* Centrado para lectura cómoda en móvil */
+}
+
+.hero-card__title {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+.hero-card__description {
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* ELEMENTO: Botón */
+.hero-card__button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.hero-card__button--primary {
+    background-color: #3498db;
+    color: white;
+}
+
+/* ==========================================================================
+   INDICADOR DE ANCHO (DEBUGGER VISUAL)
+   ========================================================================== */
+
+.hero-card {
+    position: relative; /* Para que el indicador se posicione respecto a la tarjeta */
+}
+
+/* Ajustamos el indicador para que el span y el texto convivan bien */
+.hero-card__width-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #2980b9;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 10px;
+    z-index: 100;
+    display: flex; /* Para que todo esté alineado en una línea */
+    gap: 5px;      /* Espacio entre el texto y el número */
+}
+
+
+
+
+/* Estado por defecto: Móvil (< 768px) */
+.hero-card__width-indicator::before {
+    content: "Viewport: Móvil (< 768px)-Actual:";
+}
+
+/* ==========================================================================
+   MEDIA QUERY (TABLET / DESKTOP)
+   Se activa cuando la pantalla mide 768px o más.
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    
+    /* Cambiamos la dirección de la tarjeta a horizontal */
+    .hero-card {
+        flex-direction: row; /* Imagen a la izquierda, texto a la derecha */
+        align-items: center;
+    }
+
+    /* La imagen ahora ocupa solo la mitad de la tarjeta */
+    .hero-card__image-wrapper {
+        width: 50%;
+        height: 100%; /* Se ajusta a la altura del contenido */
+    }
+
+    .hero-card__content {
+        width: 50%;
+        padding: 40px;
+        text-align: left; /* Alineación profesional para pantallas anchas */
+    }
+
+    /* Aumentamos el tamaño del título solo en desktop */
+    .hero-card__title {
+        font-size: 2rem;
+    }
+
+    .hero-card__width-indicator {
+        background-color: #2980b9;
+        color: white;
+        font-size: 10px;
+    }
+
+    /* Mientras el ancho de pantalla sea <=768 mostrara este mensaje */
+    .hero-card__width-indicator::before {
+        content: "Viewport: Tablet/Desktop (>= 768px)-Actual:";
+    }
+
+
+
+} 
+/* Pantallas Grandes */
+@media (min-width: 1200px) {
+    .hero-card__width-indicator {
+        background-color: #27ae60;
+    }
+    .hero-card__width-indicator::before {
+        content: "Viewport: Large Desktop (>= 1200px)-Actual:";
+    }
+}
