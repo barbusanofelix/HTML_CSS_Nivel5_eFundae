@@ -1,45 +1,40 @@
 /* Bloque: flex-lab */
 .flex-lab {
-    margin-top: 50px;
+    margin-top: 0px;
     padding: 20px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* background-color: aquamarine; */
+    display: flex; */
+    /* flex-direction:row; */
 }
 
 /* El Escenario: Aquí es donde aplicamos Flexbox */
 .flex-lab__scene {
-    display: flex; /* Activamos Flexbox */
-    height: 300px; /* Altura fija para ver el eje vertical */
-    background-color: #f8f9fa;
-    border: 2px dashed #bdc3c7;
-    margin-bottom: 20px;
-    border-radius: 10px;
-
+   background-color: #c2cb0b;
+   padding:15px ;
+   border:1px solid;
     /* PROPIEDADES A PROBAR: */
-
-    justify-content: center;    /* center; Alineación Horizontal (Eje Principal) */
+    /* flex-direction: column;  */
+   
                                 /* flex-start: Las cajas se pegan a la izquierda (inicio).    */
 
 
-    align-items: center;     /* Alineación Vertical (Eje Secundario) */
-    gap: 20px;               /* Espacio entre los hijos */
+    gap: 5px;               /* Espacio entre los hijos */
+    
 }
 
 /* Elemento: Las cajas dentro del escenario */
 .flex-lab__item {
-    width: 80px;
-    height: 80px;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border: 3px;
+    font-size: 30px;
+    text-align: center;
+    margin: 15px;
 }
 
 .flex-lab__item--1 { background-color: #e74c3c; }
 .flex-lab__item--2 { background-color: #2ecc71; }
 .flex-lab__item--3 { background-color: #3498db; }
+.flex-lab__item--4 { background-color: #f90fda; }
+.flex-lab__item--5 { background-color: #c834db; }
