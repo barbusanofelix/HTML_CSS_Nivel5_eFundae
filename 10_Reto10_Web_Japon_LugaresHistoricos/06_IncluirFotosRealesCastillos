@@ -1,0 +1,104 @@
+Al trabajar con imágenes reales en un entorno Junior+, hay tres pilares que debes cuidar: el rendimiento (que la web no pese una tonelada), la estética (que no se deformen) y el responsive.
+
+Aquí tienes las consideraciones clave:
+
+1. El tamaño de los archivos (Peso)
+No subas las fotos tal cual salen de la cámara o de un banco de imágenes (que suelen medir 4000px y pesar 5MB).
+
+Recomendación: Redimensiona las fotos a un ancho de unos 800px o 1000px. Es más que suficiente para el tamaño que ocupan en tu grid.
+
+Formato: Si puedes, usa .webp. Pesa mucho menos que el .jpg manteniendo la misma calidad.
+
+2. Control de proporciones con object-fit
+En tu código ya incluimos una propiedad "mágica" en .castle-card__image. Es vital que la mantengas:
+
+---
+```css
+.castle-card__image {
+    width: 100%;
+    height: 250px; /* Altura fija para que todas las fichas midan lo mismo */
+    object-fit: cover; /* Recorta la imagen para que rellene el espacio sin estirarse */
+}
+```
+---
+
+¿Por qué es importante? Si una foto es panorámica y otra es vertical, sin object-fit: cover, las fotos se verían "aplastadas" o "estiradas". Con esto, el navegador las recorta automáticamente por el centro para que siempre encajen perfectamente en tus 250px de alto.
+
+3. ¿Hay que controlar el tamaño en el Media Query?
+La respuesta corta es: No es obligatorio, pero sí recomendable.
+
+Lo que ya tienes: Al usar width: 100%, la imagen ya es "fluida". Se encogerá en el móvil y crecerá en el desktop hasta llenar el espacio que el Grid le asigne.
+
+Lo que puedes mejorar: En pantallas muy grandes (Desktop), quizás 250px de alto se queden cortos visualmente. Podrías aumentar la altura solo en el media query:
+
+4. El toque de Accesibilidad (Recordatorio)
+Cuando pongas las fotos reales, asegúrate de actualizar el atributo alt="" en tu HTML.
+
+Mal: alt="foto"
+
+Bien: alt="Fachada principal del Castillo de Tsuruga bajo los cerezos en flor"
+
+5. Consideración para el "Volteo" (Landscape en móvil)
+Cuando el usuario gira el móvil, el espacio vertical se reduce muchísimo. Si la foto mide 250px, es posible que ocupe toda la pantalla y el usuario no vea el texto.
+
+Truco Junior+ para el modo horizontal:
+
+---
+```CSS
+@media (max-height: 500px) and (orientation: landscape) {
+    .castle-card {
+        display: flex;
+        flex-direction: row; /* La foto a la izquierda y el texto a la derecha */
+    }
+    .castle-card__image {
+        width: 40%;
+        height: auto;
+    }
+}
+```
+---
+
+
+Que sean .jpg está perfecto, es el formato estándar más compatible.
+
+Como ya tienes el archivo en la misma carpeta que el index.html, solo necesitas asegurarte de que el nombre del archivo en el código coincida exactamente con el nombre del archivo real (incluyendo mayúsculas, minúsculas y la extensión).
+
+1. Actualiza el HTML
+Busca la etiqueta <img> de ese castillo y cambia la URL del placeholder por el nombre de tu archivo. Por ejemplo, si tu foto se llama tsuruga.jpg:
+
+---
+```css
+<img src="tsuruga.jpg" 
+     alt="Fachada principal del Castillo Tsuruga con sus tejas rojas" 
+     class="castle-card__image">
+```
+---
+
+2. El "Seguro de Vida" para tus imágenes (CSS)
+Para evitar que una imagen muy grande rompa tu diseño antes de que el CSS cargue o si olvidas redimensionarla, asegúrate de tener esta regla en tu sección de "Limpieza inicial" o estilos globales:
+
+```CSS
+img {
+    max-width: 100%; /* Evita que la imagen se salga de su contenedor */
+    display: block;  /* Quita un pequeño espacio en blanco que los navegadores ponen debajo de las fotos */
+    height: auto;    /* Mantiene la proporción si no le das una altura fija */
+}
+```
+
+3. Consideración de Carga (Accesibilidad y UX)
+Dado que vas a usar imágenes reales, un toque de Junior+ es añadir el atributo loading="lazy". Esto le dice al navegador: "No descargues esta imagen hasta que el usuario haga scroll cerca de ella". Esto hace que la página cargue mucho más rápido.
+
+---
+```HTML
+<img src="tsuruga.jpg" 
+     alt="..." 
+     class="castle-card__image" 
+     loading="lazy">
+
+```
+----
+
+Un consejo sobre los nombres de archivo:
+Evita usar espacios o eñes en los nombres de las fotos (ejemplo: castillo tsuruga.jpg ❌). Es mejor usar guiones bajos o medios (castillo-tsuruga.jpg ✅). Esto evita errores de ruta en algunos servidores web.
+
+¿Cómo se ve esa primera foto real integrada con el efecto de sombra y el borde redondeado que creamos? Si el object-fit: cover está funcionando, debería verse impecable independientemente de si la foto original era cuadrada o alargada.
