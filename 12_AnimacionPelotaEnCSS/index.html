@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Animaciones en CSS</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="header__title">Animaciones con CSS</h1>
+        </header>
+        <main>
+            <!-- PELOTA TENIS -->
+             <h2>Rebote infinito</h2>
+            <img class="main__img main__img--pelotaTenis" src="tenis.png" alt="Pelota de tenis" title="
+             animation: miGranSalto 2s ease-in-out infinite;
+             @keyframes miGranSalto {
+            0% {transform: translateY(0);}
+            50% {transform: translateY(-100px);
+                background-color: rgb(213, 201, 131);}  
+            100% {transform: translateY(0px);}
+            }
+             ">
+            <h2>Inicia con retardo - Sube y para</h2>
+            <!-- PELOTA BALONCESTO -->
+            <img class="main__img--pelotaBaloncesto"  src="baloncesto.png" alt="">
+
+            <!-- PELOTA BEISBOL  -->
+             <h2>Aparece - Estado inicial oculto y aparece</h2>
+            <img class="main__img--pelotaBeisbol" src="beisbol.png" alt="Pelota beisbol">
+
+            <!-- PELOTA FUTBOL -->
+             <h2>Cambia color de fondo - Multi Etapa</h2>
+            <img class="main__img--pelotaFutbol" src="pelota-de-futbol.png" alt="Pelota futbol">
+
+            <!-- PELOTA RUGBY -->
+             <h2>Latidos infinitos</h2>
+            <img class="main__img--pelotaRugby" src="pelota-de-rugby.png" alt="Pelota Rugby">
+
+            <!-- PELOTA VOLEIBOL -->
+             <h2>Cambia de fondo, bordes redondeados - infinito</h2>
+            <img class="main__img--pelotaVoleibol" src="voleibol.png" alt="Pelota Voleibol">
+
+            <h2>Pelota Magica</h2>
+            <img class="main__img--pelotaMagica" src="beisbol.png" alt="Pelota beisbol">
+
+        </main>
+        <footer class="footer">
+
+            <a href="https://www.flaticon.es/iconos-gratis/balon-de-futbol" title="balón de fútbol iconos" class="footer__link footer__link--futbol">Balón de fútbol iconos creados por Freepik - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/gorra-de-beisbol" title="gorra de beisbol iconos" class="footer__link footer__link--beisbol">Pelota de beisbol iconos creados por Good Ware - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/baloncesto" title="baloncesto iconos" class="footer__link footer__link--baloncesto">Baloncesto iconos creados por Freepik - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/voleibol" title="vóleibol iconos" class="footer__link footer__link--voleibol">Vóleibol iconos creados por Freepik - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/pelota-de-playa" title="pelota de playa iconos" class="footer__link footer__link--playa">Pelota de playa iconos creados por Freepik - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/tenis" title="tenis iconos" class="footer__link footer__link--tenis">Tenis iconos creados por Those Icons - Flaticon</a>
+
+            <a href="https://www.flaticon.es/iconos-gratis/futbol-americano" title="fútbol americano iconos" class="footer__link footer__link--futbol-americano">Fútbol americano iconos creados por Freepik - Flaticon</a>
+
+        </footer>
+    </body>
+</html>

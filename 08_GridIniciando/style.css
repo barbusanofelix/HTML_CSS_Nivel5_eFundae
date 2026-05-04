@@ -1,0 +1,53 @@
+CSS
+* {
+    box-sizing: border-box; /* Fundamental para que no exploten los cálculos */
+    margin: 0;
+    padding: 0;
+}
+
+.parent-grid {
+   
+    display: grid;
+    /* Creamos 12 columnas invisibles de igual tamaño */
+    /* La cantidad de columnas se puede elegir para cumplir las divisiones de fila */
+    grid-template-columns: repeat(12, 1fr); 
+    
+    /* Efecto de bordes: fondo oscuro + hueco (gap) */
+    background-color: #f60606; 
+    gap: 5px;   /* Entre las columnas */
+    padding: 5px;
+    border: 5px solid #333;
+    width: 100%;
+    max-width: 700px;
+    margin: 0px auto;
+}
+
+.grid-item {
+    background-color: rgb(43, 12, 243);
+    padding: 0px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+/* Reglas de expansión (Spanning) */
+/* La cantidad de columnas verticales son 12 en total asi que se reparten para tener  */
+/* row-2 : 2 columnas */
+.item-row-2 {
+    grid-column: span 6; /* 12 / 2 = 6 columnas cada uno */
+    background-color: #ff7675;
+}
+    
+.texto{
+    margin-top: 0px !important;
+}
+
+.item-row-4 {
+    grid-column: span 3; /* 12 / 4 = 3 columnas cada uno */
+    background-color: #55efc4;
+}
+
+.item-row-3 {
+    grid-column: span 4; /* 12 / 3 = 4 columnas cada uno */
+    background-color: #74b9ff;
+}

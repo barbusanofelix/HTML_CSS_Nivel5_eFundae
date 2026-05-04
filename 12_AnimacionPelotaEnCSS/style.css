@@ -1,0 +1,208 @@
+body {
+    background-color: darkkhaki;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Se adapta al contenido */
+
+}
+
+
+.header__title {
+    text-align: center;
+    /* Centramos el titulo*/
+}
+
+/* ANIMACIONES */
+.main__img--pelotaTenis {
+    width: 100px;
+    margin-bottom: 50px;
+    /* Nombre | Duración | Ritmo | Repetición */
+    animation: miGranSalto 2s ease infinite;
+}
+
+.main__img--pelotaBaloncesto {
+    width: 100px;
+    margin-bottom: 50px;
+    /* Nombre:quietaAlFinal | Duración 5s | iniciar despues de 2s | Ritmo | Repetición */
+    animation: quietaAlFinal 5s 2s ease-in forwards;
+    /* animation: quietaAlFinal 2s ease-in-out infinite; */
+}
+
+.main__img--pelotaBeisbol {
+    width: 100px;
+    margin-bottom: 50px;
+    /* Nombre:quietaAlFinal | Duración 5s | iniciar despues de 2s | Ritmo | Repetición */
+    animation: aparecer 10s forwards;
+    /* animation: quietaAlFinal 2s ease-in-out infinite; */
+}
+
+.main__img--pelotaFutbol {
+    width: 100px;
+    margin-bottom: 50px;
+    /* Nombre:quietaAlFinal | Duración 5s | iniciar despues de 2s | Ritmo | Repetición */
+    animation: semaforo 6s ease-in forwards;
+    /* animation: quietaAlFinal 2s ease-in-out infinite; */
+}
+
+.main__img--pelotaRugby {
+    width: 100px;
+    margin-bottom: 50px;
+    /* Nombre:quietaAlFinal | Duración 5s | iniciar despues de 2s | Ritmo | Repetición */
+    animation: latidos 5s ease-in-out infinite;
+    /* animation: quietaAlFinal 2s ease-in-out infinite; */
+}
+
+.main__img--pelotaVoleibol {
+    width: 100px;
+    margin-bottom: 50px;
+    /* <--- ¡ESTO ES CLAVE! para que funcione el movimiento */
+    position: relative;
+    animation: loco 5s 1s ease-in infinite;
+}
+
+.main__img--pelotaMagica {
+    width: 80px;
+    position: relative;
+    /* Duración 3s | Ritmo lineal | Infinito | Alternado (va y vuelve) */
+    animation: superRebote 3s linear infinite alternate;
+}
+
+.footer {
+    display: flex;
+    /* Activar flex */
+    flex-direction: column;
+    /* Mostrar los links verticalmente */
+    background-color: rgb(188, 178, 39);
+    /*color de fondo */
+    margin-top: 59px;
+    /* Separamos el footer del body */
+
+}
+
+.footer__link {
+    margin: 15px auto auto 12px;
+
+}
+
+@keyframes miGranSalto {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100px);
+        background-color: rgb(213, 201, 131);
+    }
+
+    /* Cambio Color opcional*/
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes quietaAlFinal {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Patrón "From / To" (Desde / Hasta) */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Patrón de Porcentajes (Multi-etapa) */
+@keyframes semaforo {
+    0% {
+        background: greenyellow;
+    }
+
+    33% {
+        background: yellow;
+    }
+
+    66% {
+        background: red;
+    }
+
+    100% {
+        background: green;
+    }
+}
+
+/* Agrupar Selectores */
+@keyframes latidos {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+}
+
+/* Múltiples propiedades a la vez */
+@keyframes loco {
+    0% {
+        left: 0;
+        border-radius: 0;
+    }
+
+    100% {
+        left: 200px;
+        border-radius: 50%;
+        background: blue;
+    }
+}
+
+@keyframes superRebote {
+    0% {
+        /* Inicio: Arriba a la izquierda y tamaño normal */
+        transform: translate(0, 0) scale(1, 1);
+    }
+
+    25% {
+        /* Punto medio arriba: se desplaza a la derecha */
+        transform: translate(150px, -50px) scale(1, 1);
+    }
+
+    50% {
+        /* Toca el "suelo": se mueve más a la derecha y se aplasta */
+        /* scale(ancho, alto) -> 1.2 es más ancho, 0.8 es más bajo */
+        transform: translate(300px, -400px) scale(1.2, 0.8);
+        background-color: gold;
+        /* Opcional: brilla al tocar suelo */
+    }
+
+    75% {
+        /* Rebota hacia arriba y recupera forma, sigue avanzando a la derecha */
+        transform: translate(450px, -50px) scale(1, 1);
+    }
+
+    100% {
+        /* Llega al extremo derecho y vuelve a bajar */
+        transform: translate(600px, -400px) scale(1.2, 0.8);
+    }
+}

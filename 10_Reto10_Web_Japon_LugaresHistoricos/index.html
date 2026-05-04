@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-
+        <!-- Este div se usa para saber en que rango estamos en el media query -->
+        <div class="screen-size-helper"></div>
         <div class="main-layout">
 
             <header class="header">
@@ -68,7 +69,8 @@
 
                     <figure class="castle-card__figure">
                         <!-- <img src="https://placehold.co/300x200" alt="Calle empedrada de Higashiyama con templos al fondo al atardecer" class="castle-card__image"> -->
-                        <img src="Higashiyama.jpg" alt="Fachada principal del Castillo Tsuruga con sus tejas rojas" <figcaption class="castle-card__caption">Uno de los distritos históricos mejor conservados de Japón.</figcaption>
+                        <img src="Higashiyama.jpg" alt="Fachada principal del Castillo Tsuruga con sus tejas rojas" class="castle-card__image">
+                        <figcaption class="castle-card__caption">Uno de los distritos históricos mejor conservados de Japón.</figcaption>
                     </figure>
 
                     <div class="castle-card__info">
@@ -137,5 +139,15 @@
             </footer>
 
         </div>
+        <div id="debug-info" style="position:fixed; bottom:10px; left:10px; background:rgba(255,0,0,0.8); color:white; padding:8px; z-index:10000; font-family:monospace; font-size:12px;"></div>
+
+        <script>
+            function showSize() {
+                document.getElementById('debug-info').innerHTML =
+                    'Ancho: ' + window.innerWidth + 'px | Alto: ' + window.innerHeight + 'px';
+            }
+            window.onresize = showSize;
+            showSize();
+        </script>
     </body>
 </html>

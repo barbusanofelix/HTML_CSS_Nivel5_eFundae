@@ -1,0 +1,57 @@
+
+
+.container{
+    display: grid; 
+	 grid-template-rows: 100px 150px; /*Dos filas de 100px y 200px respectivamente  */
+	grid-template-columns: 1fr 2fr;     /* Dos columnas con un ancho flexibles (fracción) */ 
+
+    /* grid-auto-rows: 150px; /* Añade filas de 150px*/
+    grid-auto-rows: minmax(50px,auto);
+}
+
+.grid1_1{
+    background-color: rgb(150, 156, 210);
+    font-size: 0.5rem;
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.grid1_2{
+    background-color: rgb(94, 132, 226);
+    font-size: 0.5rem;
+    display: flex; /* Activa display flex*/
+
+    align-items: center; /*realmente Ordena el h1 ( el hijo) que esta dentro  */
+    justify-content: center;
+}
+
+.grid2_1{
+    background-color: rgb(193, 108, 47);
+    font-size: 0.5rem;
+    display: flex;
+
+    /* Aplica sobre los hojos */
+    flex-direction: column;
+    justify-content: space-between; /* LLeva el h2 al final...separa los 2 textos  */
+
+
+
+}
+
+.grid2_2{
+    background-color: rgb(128, 65, 3);
+    font-size: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.ubicar1_1 {
+    grid-row: 1;             /* Se queda en la fila 1 */
+    grid-column: 1 / span 2; /* Ocupa las dos columnas */
+    
+   background-color: rgb(125, 212, 186); /* Ponle transparencia para ver qué hay debajo */
+   text-align: center;
+   
+}

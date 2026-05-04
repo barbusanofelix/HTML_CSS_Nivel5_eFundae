@@ -1,303 +1,212 @@
-/* Limpieza inicial */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   1. LIMPIEZA Y BASE (Mobile First - Diseño Vertical)
+   ============================================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* El contenedor Grid */
+body {
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Layout base: Una sola columna */
 .main-layout {
     display: grid;
-    /* Mapa de la página */
-    grid-template-areas: 
+    grid-template-areas:
         "header"
         "nav"
         "main"
         "aside"
         "footer";
-    min-height: 100vh;
 }
 
-/* Asignación de áreas a las etiquetas semánticas */
-.header { 
+/* Áreas Semánticas */
+.header {
     grid-area: header;
-    /* background-color: chartreuse;  */
+    background-color: #1a1a1a;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
 }
-.nav    { 
+
+.nav {
     grid-area: nav;
-    /* background-color: rgb(152, 215, 152); */
- }
-.main-content { 
+    background-color: #2c3e50;
+}
+
+.main-content {
     grid-area: main;
-    /* background-color: gold; } */
+    padding: 20px;
 }
-.sidebar { 
+
+.sidebar {
     grid-area: aside;
-    /* background-color: cyan;  */
-}
-.footer  { 
-    grid-area: footer; 
-    /* background-color: blueviolet; */
+    padding: 20px;
 }
 
-/* ********** Refinamiento de las Fichas (Articles) *********** */
+.footer {
+    grid-area: footer;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
 
+/* --- Estilos de la Tarjeta (Modo Móvil) --- */
 .castle-card {
+    background: white;
+    margin-bottom: 2rem;
     display: flex;
-    flex-direction: column; /* Asegura que el contenido fluya hacia abajo */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Para una animación suave */
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Efecto al pasar el ratón: La ficha se eleva ligeramente */
-.castle-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    flex-direction: column;
+    /* Todo uno debajo de otro */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .castle-card__header {
-    background-color: #f8f9fa; /* Un gris muy sutil para diferenciar el título */
+    background-color: #f8f9fa;
     padding: 1.2rem;
 }
 
-.castle-card__name {
-    margin: 0;
-    font-family: 'Georgia', serif; /* Una fuente con serifa le da un toque histórico */
-    color: #1a1a1a;
-    letter-spacing: 0.5px;
+.castle-card__image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
 }
 
-.castle-card__meta {
-    font-size: 0.85rem;
-    color: #7f8c8d;
-    text-transform: uppercase;
-    margin-top: 4px;
+.castle-card__info {
+    padding: 1.2rem;
 }
 
-/* Estilo para la lista de horarios dentro de la ficha */
-.castle-card__info p {
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
-    color: #333;
-}
-
-/* Mejorando el componente Details/Summary */
-.castle-card__details {
-    background-color: #fffaf0; /* Un tono crema suave para la zona histórica */
-    transition: all 0.3s ease;
-}
-
-.castle-card__details[open] {
-    padding-bottom: 1rem;
-}
-
-.castle-card__summary {
-    padding: 0.5rem;
-    outline: none;
-    user-select: none;
-}
-
-.castle-card__summary:hover {
-    color: #a04000; /* Oscurece el naranja al pasar el ratón */
-}
-
-.castle-card__extra-content {
-    padding: 1rem;
-    font-size: 0.95rem;
-    border-left: 3px solid #d35400; /* Una barra lateral naranja para destacar la reseña */
-    margin: 0.5rem 0;
-}
-/* **************** FIN ESTILOS FICHAS ************************ */
-
-/*  *************Barra Lateral ********************************* */
-
-.sidebar {
-    padding: 20px;
-    background-color: #fcfcfc; /* Un blanco casi puro */
-}
-
-.sidebar__section {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px dashed #d35400; /* Un borde punteado le da estilo de "nota" */
-}
-
-.sidebar__title {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    text-align: center;
-    border-bottom: 2px solid #f1c40f; /* Un detalle amarillo */
-    padding-bottom: 5px;
-}
-
-.sidebar__subtitle {
-    font-size: 1rem;
-    margin-top: 1rem;
-    color: #e67e22;
-}
-
-.sidebar__list {
-    list-style: none; /* Quitamos los puntos por defecto */
-    margin-top: 10px;
-}
-
-.sidebar__list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-}
-
-/* Un pequeño detalle: añadir un emoji o viñeta antes de cada item */
-.sidebar__list li::before {
-    content: "⛩️";
-    margin-right: 8px;
-    font-size: 0.8rem;
-}
-/* *******************FIN DE BARRA LATERAL ************************* */
-
-/* *************AJUSTE DEL HEADER Y NAV ******************* */
-.header {
-    background-color: #1a1a1a;
-    color: white;
-    padding: 3rem 1rem;
-    text-align: center;
-}
-
-.header__subtitle {
-    color: #f1c40f; /* Color oro para el subtítulo */
-    font-style: italic;
-    opacity: 0.9;
-}
-/* ***********************fin header ******************  */
-
-/* ******************* Estilos del Nav ******************* */
-/* --- Estilos de Navegación (Nav) --- */
-
-.nav {
-    background-color: #2c3e50; /* Azul oscuro profundo */
-    padding: 0; /* Quitamos padding para que los enlaces toquen los bordes si es necesario */
-}
-
+/* Estilos de navegación base */
 .nav__list {
-    list-style: none; /* Quitamos los puntos de la lista */
+    list-style: none;
     display: flex;
-    flex-direction: column; /* Apilados verticalmente para móvil */
-    padding: 0;
-}
-
-.nav__item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil entre botones */
+    flex-direction: column;
 }
 
 .nav__link {
-    display: block; /* Para que todo el ancho sea clicable (mejor accesibilidad) */
-    color: #ffffff;
-    text-decoration: none;
-    padding: 15px 20px;
-    text-align: center;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-/* Efecto Hover para los enlaces */
-.nav__link:hover, 
-.nav__link:focus {
-    background-color: #34495e;
-    color: #f1c40f; /* Color oro al pasar el ratón */
-    outline: none;
-}
-/* ********************* Fin NAV ****************************** */
-
-/* ****************Mejora para el body ************************* */
-body {
-    background-color: #f0f0f0; /* Un gris muy claro de fondo general */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-/* **********************Fin  body ****************************** */
-
-/* **** Ajuste en el contenedor principal para que nada toque los bordes *** */
-.main-content {
-    padding: 40px 20px; /* 40px arriba/abajo, 20px a los lados */
-}
-
-/* *** Estilo para el Footer (que en la captura se ve blanco) *** */
-.footer {
-    background-color: #1a1a1a; /* Negro como el header para cerrar el diseño */
+    display: block;
     color: white;
-    padding: 3rem 1rem;
-    margin-top: 40px; /* Separación del contenido */
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
 }
 
-/* *************+ SETTINGS PARA IMAGENES ****************  */
-.castle-card__image {
-    width: 100%;
-    height: 250px; /* Altura fija para que todas las fichas midan lo mismo */
-    object-fit: cover; /* Recorta la imagen para que rellene el espacio sin estirarse */
+/* ============================================================
+   2. CASO ESPECIAL: LANDSCAPE (Solo si es bajito y estrecho)
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 900px) {
+    .castle-card {
+        flex-direction: row;
+        /* Foto a la izquierda, texto a la derecha */
+    }
+
+    .castle-card__header,
+    .castle-card__info {
+        flex: 1;
+    }
+
+    .castle-card__figure {
+        flex: 1;
+    }
+
+    .castle-card__image {
+        height: 100%;
+    }
 }
 
+/* ============================================================
+   3. DISEÑO ESCRITORIO (Solo si hay ancho Y alto suficiente)
+   ============================================================ */
+@media (min-width: 768px) and (min-height: 501px) {
 
-/* --- Estilos para Tablet y Desktop (Pantallas mayores a 768px) --- */
-@media (min-width: 768px) {
     .main-layout {
-        /* Definimos 2 columnas: una fija para el sidebar y otra flexible */
-        grid-template-columns: 1fr 250px;
-        
-        /* Redibujamos el mapa para esta resolución */
-        grid-template-areas: 
+        grid-template-columns: 1fr 300px;
+        grid-template-areas:
             "header  header"
             "nav     nav"
             "main    aside"
             "footer  footer";
-        
-        column-gap: 20px; /* Espacio entre columnas */
+        column-gap: 30px;
     }
-
-    /* Opcional: Centrar el contenido para que no se estire al infinito en pantallas 4K */
-    .header__container, .nav__list, .main-content, .footer__container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-   
-    /* ************ Ajuste del Media Query ************ */
-    /* ****+++ Poner los menus uno junto al otro para pantallas pequeñas */
 
     .nav__list {
-        flex-direction: row; /* ¡Magia! Se ponen en horizontal */
-        justify-content: center; /* Centrados en la barra */
+        flex-direction: row;
+        justify-content: center;
     }
 
-    .nav__item {
-        border-bottom: none; /* Quitamos la línea separadora en desktop */
-        border-right: 1px solid rgba(255, 255, 255, 0.1); /* Separador vertical opcional */
+    /* REGLA MAESTRA DE ALINEACIÓN (Las 3 columnas) */
+    .castle-card {
+        display: grid;
+        /* Columna 1: 220px fija | Columna 2: Flexible | Columna 3: 200px fija */
+        grid-template-columns: 220px 1fr 200px;
+        align-items: center;
+        /* Alinea los centros de los 3 bloques */
+        gap: 0;
+        padding: 0;
     }
 
-    .nav__item:last-child {
-        border-right: none; /* El último no lleva borde */
+    .castle-card__header {
+        background: transparent;
+        border-right: 1px solid #eee;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .castle-card__image {
-        height: 300px; /* Un poco más de presencia en pantallas grandes */
+        height: 200px;
+        /* Altura fija para uniformidad */
+        width: 100%;
+        padding: 10px;
+        /* Pequeño margen interno */
+    }
+
+    .castle-card__info {
+        border-left: 1px solid #eee;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .footer__container {
+        display: flex;
+        justify-content: space-around;
     }
 }
 
+/* ============================================================
+   4. INDICADORES DE DEBUG (Para tus capturas)
+   ============================================================ */
+.screen-size-helper::after {
+    content: "MODO: Móvil / Tablet Vertical";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    z-index: 9999;
+    font-family: monospace;
+}
 
-/* --- Caso especial: Volteo de pantalla (Landscape en Móvil) --- */
+@media (min-width: 768px) and (min-height: 501px) {
+    .screen-size-helper::after {
+        content: "MODO: Escritorio (Columnas activas)";
+        background: green;
+    }
+}
+
 @media (max-height: 500px) and (orientation: landscape) {
-    .header__title {
-        font-size: 1.2rem; /* Achicamos el título para que no robe toda la pantalla al girar */
-    }
-    .header {
-        padding: 10px;
-    }
-
-    
-    .castle-card {
-        display: flex;
-        flex-direction: row; /* La foto a la izquierda y el texto a la derecha */
-    }
-    .castle-card__image {
-        width: 40%;
-        height: auto;
+    .screen-size-helper::after {
+        content: "MODO: Horizontal (Landscape)";
+        background: orange;
     }
 }

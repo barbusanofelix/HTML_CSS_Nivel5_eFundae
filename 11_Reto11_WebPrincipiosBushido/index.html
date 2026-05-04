@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bushido: El Camino del Guerrero</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- BLOQUE: Header (Usaremos Flexbox aquí) -->
+        <header class="main-header">
+            <div class="main-header__container">
+                <!-- Figura Izquierda -->
+                <img src="./src/img/Samurai_1.jpg" alt="Guerrero Samurai" class="main-header__side-img">
+
+                <!-- Contenido Central -->
+                <div class="main-header__content">
+                    <img src="./src/img/samurai-bushido.jpg" alt="Bushido Kanji" class="main-header__logo">
+                    <h1 class="main-header__title">Los Siete Principios del Código Samurai</h1>
+                </div>
+
+                <!-- Figura Derecha -->
+                <img src="./src/img/samurai_2.jpg" alt="Guerrero Samurai" class="main-header__side-img">
+            </div>
+        </header>
+
+        <main class="container">
+
+            <!-- BLOQUE: Grid de Principios -->
+            <section class="bushido-grid">
+
+                <!-- Elemento: Card de Principio -->
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/gi.jpg" alt="Rectitud" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Gi (Rectitud)</h2>
+                        <p class="principle-card__description">Sé honrado en tus tratos con todo el mundo. Cree en la justicia, pero no en la que emana de los demás, sino en la tuya propia.</p>
+                    </div>
+                </article>
+
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/yu.jpg" alt="Valor" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Yu (Valor Heroico)</h2>
+                        <p class="principle-card__description">Álzate sobre las masas de gente que temen actuar. Ocultarse como una tortuga en su caparazón no es vivir.</p>
+                    </div>
+                </article>
+
+                <!-- Imagen separadora (Se ocultará o cambiará de posición según el breakpoint) -->
+                <aside class="separator">
+                    <img src="./src/img/bushido-separador2.jpg" alt="Samurai con una Katana y horinte" class="separator__img">
+                </aside>
+
+
+
+                <!-- Aquí continuarían los demás principios siguiendo el mismo patrón -->
+                <!-- 3. Jin (Compasión) -->
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/jin.jpg" alt="Benevolencia / Compasión" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Jin (Compasión)</h2>
+                        <p class="principle-card__description">Mediante el entrenamiento intenso el samurái se vuelve rápido y fuerte. Debe usar esa fuerza para el bien de todos. Ayuda a tus compañeros en cualquier oportunidad.</p>
+                    </div>
+                </article>
+
+
+                <!-- 4. Rei (Respeto) -->
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/rei.jpg" alt="Respeto" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Rei (Cortesía y Respeto)</h2>
+                        <p class="principle-card__description">Los samuráis no tienen motivos para ser crueles. No necesitan demostrar su fuerza. Un samurái es cortés incluso con sus enemigos. Sin esta muestra de respeto no somos mejores que los animales.</p>
+                    </div>
+                </article>
+
+                <!-- IMAGEN SEPARADORA 2 -->
+                <aside class="separator">
+                    <img src="./src/img/bushido-separador1.jpg" alt="Dos Guerreris listos para combate" class="separator__img">
+                </aside>
+
+
+                <!-- 5. Makoto (Sinceridad) -->
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/makoto.jpg" alt="Sinceridad" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Makoto (Sinceridad Absoluta)</h2>
+                        <p class="principle-card__description">Cuando un samurái dice que hará algo, es como si ya estuviera hecho. Nada en este mundo lo detendrá en la realización de lo que ha dicho que hará. Hablar y hacer son la misma acción.</p>
+                    </div>
+                </article>
+
+
+
+                <!-- 6. Meiyo (Honor) -->
+                <article class="principle-card">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/meiyo.jpg" alt="Honor y Gloria" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Meiyo (Honor)</h2>
+                        <p class="principle-card__description">El verdadero samurái solo tiene un juez de su propio honor, y es él mismo. Las decisiones que tomas y cómo las llevas a cabo son un reflejo de quién eres en realidad.</p>
+                    </div>
+                </article>
+
+
+                <!-- 7. Chugi (Lealtad) -->
+
+                <!-- En la tarjeta de Chugi -->
+                 <!-- Identificamos el ultimo elemento con el --last para moverlo en la grid al centro de la fila -->
+                <article class="principle-card principle-card--last">
+                    <figure class="principle-card__figure">
+                        <img src="./src/img/chugi.jpg" alt="Devocion y lealtad" class="principle-card__image">
+                    </figure>
+                    <div class="principle-card__text">
+                        <h2 class="principle-card__name">Chugi (Lealtad)</h2>
+                        <p class="principle-card__description">Haber hecho o dicho algo significa que ese "algo" te pertenece. Eres responsable de ello y de todas las consecuencias que le sigan. El samurái es intensamente leal a aquellos bajo su cuidado.</p>
+                    </div>
+                </article>
+
+                <!-- Reemplaza tus dos últimos aside por este bloque -->
+                 <!-- Creamos la clase separator--overlay-last" para identificar la foto y moverla de celda, al centro  -->
+                <div class="separator--overlay separator--overlay-last">
+                    <!-- La imagen del Samurai de fondo -->
+                    <img src="./src/img/bushido-portada1.webp" alt="Samurái en el Ocaso" class="separator__img--base">
+
+                    <!-- La imagen de los 7 principios encima -->
+                    <img src="./src/img/bushido-separador3.jpg" alt="Los 7 principios" class="separator__img--top">
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer__copy">&copy; 2026 Honor y Lealtad - Proyecto Bushido.</p>
+            <p>Elaborado por Felix Lopez</p>
+        </footer>
+
+    </body>
+</html>
