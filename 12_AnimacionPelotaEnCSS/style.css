@@ -72,6 +72,17 @@ main {
     animation: superRebote 3s linear infinite alternate;
 }
 
+.main__img--pelotaVoleibol-azar{
+    width:80px;
+    position: relative; /* Indispensable para que se mueva */
+    z-index: 1000;  /* Pasa por encima de todos los otros elementos dibujados en el html   */
+
+    /* ! superReboteAzar se inyectara con Java Script. NO LO VERAS EN ESTE ARCHIVO.  */
+    /* ! Busca el @keyframes superReboteAzar en pelotaVoleibolAzar.js" */
+
+    animation: superReboteAzar 4s linear infinite alternate;
+}
+
 .footer {
     display: flex;
     /* Activar flex */
@@ -185,13 +196,13 @@ main {
 
     25% {
         /* Punto medio arriba: se desplaza a la derecha */
-        transform: translate(150px, -50px) scale(1, 1);
+        transform: translate(50vh, -50px) scale(1, 1);
     }
 
     50% {
         /* Toca el "suelo": se mueve más a la derecha y se aplasta */
         /* scale(ancho, alto) -> 1.2 es más ancho, 0.8 es más bajo */
-        transform: translate(300px, -400px) scale(1.2, 0.8);
+        transform: translate(300px, -600px) scale(1.2, 0.8);
         background-color: gold;
         /* Opcional: brilla al tocar suelo */
     }
@@ -203,6 +214,6 @@ main {
 
     100% {
         /* Llega al extremo derecho y vuelve a bajar */
-        transform: translate(600px, -400px) scale(1.2, 0.8);
+        transform: translate(600px, -800px) scale(1.2, 0.8);
     }
 }
