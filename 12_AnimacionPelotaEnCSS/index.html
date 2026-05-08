@@ -11,9 +11,21 @@
             <h1 class="header__title">Animaciones con CSS</h1>
         </header>
         <main>
+            <h2>Controles para Pelota de Rugby, que esta en movimientos al azar </h2>
+            <div class="main__cajaBotones">
+                <button class="main__btn main__btn--pausarActivar" id="btnPausaActivar">Pausar Pelota</button>
+                <button class="main__btn main__btn--acelerar" id="btnAcelerar">Acelerar 4x</button>
+                <button class="main__btn main__btn--reverse" id="btnReverse">Retroceder</button>
+
+            </div>
             <!-- PELOTA VOLEIBOL -->
             <h2>Genera trayectoria al azar - Ver GuiaAnimacionAlAzar.md</h2>
             <img class="main__img--pelotaVoleibol-azar" src="voleibol.png" alt="Pelota Voleibol">
+
+            <!-- PELOTA VOLEIBOL -->
+            <h2>Genera trayectoria al azar por tiempo- Ver GuiaAnimacionAlAzar.md</h2>
+            <img id="pelotaPlaya" class="main__img--pelotaPlaya-azar" src="pelotaPlaya.png" alt="Pelota Playa">
+
 
             <!-- PELOTA TENIS -->
             <h2>Rebote infinito</h2>
@@ -26,6 +38,10 @@
             100% {transform: translateY(0px);}
             }
              ">
+            <h2>Pelota Rugby : Usa WAAPI ( Web Animation API</h2>
+            <!-- PARA USAR WAAPI ( Web Animation API ) -->
+            <img id="pelotaRugby" class="main__img--pelotaRugby-WAAPI" src="pelotaRugby.png" alt="Pelota Rugby">
+
             <h2>Inicia con retardo 2" - Sube y luego se detiene</h2>
             <!-- PELOTA BALONCESTO -->
             <img class="main__img--pelotaBaloncesto" src="baloncesto.png" alt="">
@@ -40,7 +56,7 @@
 
             <!-- PELOTA RUGBY -->
             <h2>Latidos infinitos</h2>
-            <img class="main__img--pelotaRugby" src="pelota-de-rugby.png" alt="Pelota Rugby">
+            <img class="main__img--pelotaRugby" src="pelotaRugby.png" alt="Pelota Rugby">
 
             <!-- PELOTA VOLEIBOL -->
             <h2>Avanza la derecha - Cambia de fondo, bordes redondeados - y repite sin parar (infinito)</h2>
@@ -49,7 +65,7 @@
             <h2>Pelota Magica- rebotes en angulo ( X y Y) y luego se regresa a su posicion inicial y vuelve a repetir </h2>
             <img class="main__img--pelotaMagica" src="beisbol.png" alt="Pelota beisbol">
 
-            
+
         </main>
         <footer class="footer">
 
@@ -68,6 +84,6 @@
             <a href="https://www.flaticon.es/iconos-gratis/futbol-americano" title="fútbol americano iconos" class="footer__link footer__link--futbol-americano">Fútbol americano iconos creados por Freepik - Flaticon</a>
 
         </footer>
-        <script src="pelotaVoleibolAzar.js"></script>
+        <script src="pelotaAlAzar.js"></script>
     </body>
 </html>

@@ -1,0 +1,148 @@
+/* Bloque Principal */
+
+/* Contenedor principal */
+.gallery-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Ajustamos el minmax para que las tarjetas no sean demasiado pequeñas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Elemento Tarjeta */
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1a1a1a;
+    /* Fondo para que el texto resalte */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Para que todas midan lo mismo en la misma fila */
+    border: 1px solid #333;
+}
+
+/* La imagen dentro de la tarjeta - LA CLAVE DE LA UNIFORMIDAD */
+.gallery-item__img {
+    width: 100%;
+    height: 220px;
+    /* Forzamos altura igual para todas las portadas */
+    object-fit: contain;
+    /* Recorta la imagen para llenar el espacio sin deformar */
+    object-position: center;
+}
+
+/* El texto debajo de la foto */
+.gallery-item__info {
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* Tu efecto de hover mejorado con una sombrita */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-color: #00d4ff;
+    /* Un toque de color al pasar el mouse */
+}
+
+
+/* El Lightbox (Fondo Oscurecido) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Efecto especial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /*Antes 1000 */
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox--hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+.lightbox__image {
+    max-width: 90vw;
+    max-height: 80vh;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Posicionamiento de la X de cierre */
+.lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 80px;
+    /* ¡Hazla grande! */
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    /* ESTO ES LO VITAL */
+    z-index: 5000;
+    /* pointer-events: auto; */
+    /* Fuerza a que responda al mouse */
+}
+
+.lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: red;
+}
+
+/* Botones laterales de navegación */
+.lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 40px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 2100;
+}
+
+.lightbox__nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: chartreuse;
+}
+
+.lightbox__nav--prev {
+    left: 20px;
+}
+
+.lightbox__nav--next {
+    right: 20px;
+}
+
+/* El contenedor de la imagen para que no tape los botones */
+.lightbox__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

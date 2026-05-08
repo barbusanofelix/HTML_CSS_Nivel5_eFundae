@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Galeria Animada de Fotos</title>
+</head>
+<body>
+    <main class="gallery-container">
+        <h1 class="gallery-container__title">Mis Galerías de Aprendizaje</h1>
+        <section id="galleryGrid" class="gallery-grid">
+            <!-- Se generará dinámicamente con JS -->
+        </section>
+    </main>
+    
+
+    <!-- Ventana Modal (Lightbox) -->
+    <div id="lightbox" class="lightbox lightbox--hidden">
+        <button class="lightbox__close" title="Cerrar">&times;</button>
+    
+        <div class="lightbox__content">
+            <button class="lightbox__nav lightbox__nav--prev" title="Atras">❮</button>
+    
+            <div class="lightbox__image-container">
+                <img src="" alt="Imagen expandida" class="lightbox__image">
+                <div class="lightbox__loader">Cargando...</div>
+            </div>
+    
+            <button class="lightbox__nav lightbox__nav--next" title="Adelante">❯</button>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
