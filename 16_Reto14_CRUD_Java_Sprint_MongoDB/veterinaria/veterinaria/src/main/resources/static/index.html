@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Veterinaria del Samurái - Panel de Control</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body class="vet-app">
+
+        <header class="vet-header">
+            <h1 class="vet-header__title">🥋 Panel Veterinario Samurái</h1>
+            <p class="vet-header__subtitle">Gestión avanzada de pacientes y consultas</p>
+        </header>
+
+        <main class="vet-main">
+            <section class="vet-section card">
+                <h2 class="vet-section__title">1. Seleccionar Paciente</h2>
+                <div class="control-group">
+                    <label for="animal-select" class="control-group__label">Elige un animal de la lista:</label>
+                    <select id="animal-select" class="control-group__select">
+                        <option value="">Cargando pacientes...</option>
+                    </select>
+                </div>
+
+                <div id="details-box" class="details-box details-box--hidden">
+                    <h3 class="details-box__subtitle">Ficha Técnica</h3>
+                    <p><strong>Especie/Raza:</strong> <span id="info-specie"></span></p>
+                    <p><strong>Fecha Nacimiento:</strong> <span id="info-birth"></span></p>
+                    <hr class="details-box__divider">
+                    <h3 class="details-box__subtitle">Datos del Propietario</h3>
+                    <p><strong>Nombre:</strong> <span id="info-owner-name"></span></p>
+                    <p><strong>Teléfono:</strong> <span id="info-owner-phone"></span></p>
+                    <p><strong>Dirección:</strong> <span id="info-owner-address"></span></p>
+                </div>
+            </section>
+
+            <section class="vet-section card">
+                <h2 class="vet-section__title">2. Historial de Consultas</h2>
+                <div id="consultations-container" class="history-list">
+                    <p class="history-list__placeholder">Selecciona un animal para recuperar su expediente de MongoDB.</p>
+                </div>
+            </section>
+
+            <section class="vet-section card">
+                <h2 class="vet-section__title">3. Registrar Nueva Consulta</h2>
+                <form id="consultation-form" class="vet-form">
+                    <div class="vet-form__group">
+                        <label for="form-date" class="vet-form__label">Fecha de Visita:</label>
+                        <input type="date" id="form-date" class="vet-form__input" required>
+                    </div>
+
+                    <div class="vet-form__group">
+                        <label for="form-reason" class="vet-form__label">Motivo de la Consulta:</label>
+                        <input type="text" id="form-reason" class="vet-form__input" placeholder="Ej: Revisión, Vacuna, Urgencia" required>
+                    </div>
+
+                    <div class="vet-form__group">
+                        <label for="form-notes" class="vet-form__label">Notas Clínicas del Especialista:</label>
+                        <textarea id="form-notes" class="vet-form__textarea" rows="4" placeholder="Detalles del diagnóstico o tratamiento..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit" class="vet-form__button" disabled>Registrar en Base de Datos</button>
+                </form>
+            </section>
+        </main>
+
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+Para: barbusanofelix@gmail.com
+Asunto: Confirmación de Registro de Incidencia: Probando un script malicioso.
+Cabeceras: 
+From: no-reply@tuservicio.com
+Reply-To: no-reply@tuservicio.com
+X-Mailer: PHP/8.0.30
+Content-Type: text/plain; charset=UTF-8
+--------------------------------------------------
+Un saludo cordial Felix Concepción.
+Hemos recibido su solicitud: Probando un script malicioso. y ha sido registrada con el numero 20260516001
+Y su mensaje:
+"&#60;script&#62;alert(&#39;Ataque XSS exitoso&#39;);&#60;/script&#62;"
+
+En maximo 2 dias habiles, nos comunicaremos con usted por esta via y/o telefono : 0643537550
+
+Favor no responda a este mail pues es un servicio automatico.

@@ -1,0 +1,30 @@
+[
+    {
+        "_id": "consult1",
+        "animalId": "animal1",
+        "date": "2024-01-10",
+        "reason": "Vacunación anual",
+        "notes": "Todo en orden, se aplicó la vacuna pentavalente."
+    },
+    {
+        "_id": "consult2",
+        "animalId": "animal1",
+        "date": "2024-03-12",
+        "reason": "Revisión de oído",
+        "notes": "Presencia leve de infección, se recetó antibiótico."
+    },
+    {
+        "_id": "consult3",
+        "animalId": "animal2",
+        "date": "2024-02-03",
+        "reason": "Pérdida de apetito",
+        "notes": "Se recomienda cambio de pienso. No se detectan anomalías graves."
+    },
+    {
+        "_id": "consult4",
+        "animalId": "animal3",
+        "date": "2024-01-20",
+        "reason": "Cojera en pata trasera",
+        "notes": "Posible esguince. Se recomienda reposo y antiinflamatorios."
+    }
+]

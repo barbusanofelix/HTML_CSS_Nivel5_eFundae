@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "animal1",
+        "name": "Max",
+        "species": "Perro",
+        "breed": "Golden Retriever",
+        "birthdate": "2018-03-21",
+        "ownerId": "owner1"
+    },
+    {
+        "_id": "animal2",
+        "name": "Luna",
+        "species": "Gato",
+        "breed": "Siamés",
+        "birthdate": "2020-11-05",
+        "ownerId": "owner1"
+    },
+    {
+        "_id": "animal3",
+        "name": "Rocky",
+        "species": "Perro",
+        "breed": "Bulldog francés",
+        "birthdate": "2019-08-15",
+        "ownerId": "owner2"
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "owner1",
+        "name": "Laura Gómez",
+        "address": "Calle Magnolia 12, Madrid",
+        "phone": "612345678"
+    },
+    {
+        "_id": "owner2",
+        "name": "Carlos Pérez",
+        "address": "Avenida del Sol 45, Sevilla",
+        "phone": "699112233"
+    }
+]
