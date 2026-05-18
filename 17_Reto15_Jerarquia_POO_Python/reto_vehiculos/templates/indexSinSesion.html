@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="catalog">
+    <h2 class="catalog__title">Vehículos Disponibles para Alquiler</h2>
+    
+    <div class="vehicle-grid">
+        
+        {% for id, vehiculo in lista_vehiculos.items() %}
+        
+   
+        <div class="vehicle-card vehicle-card--{{ vehiculo.__class__.__name__ | lower }}">
+            <div class="vehicle-card__header">
+                <h3 class="vehicle-card__title">{{ vehiculo.marca }} {{ vehiculo.modelo }}</h3>
+                <span class="vehicle-card__badge">{{ vehiculo.__class__.__name__ }}</span>
+            </div>
+            
+            <div class="vehicle-card__body">
+                <p class="vehicle-card__text"><strong>Año:</strong> {{ vehiculo.anio }}</p>
+                
+                {% if vehiculo.__class__.__name__ == 'Coche' %}
+                    <p class="vehicle-card__text"><strong>Puertas:</strong> {{ vehiculo.numero_puertas }}</p>
+                    <p class="vehicle-card__text"><strong>Combustible:</strong> {{ vehiculo.combustible }}</p>
+                {% elif vehiculo.__class__.__name__ == 'Motocicleta' %}
+                    <p class="vehicle-card__text"><strong>Cilindrada:</strong> {{ vehiculo.cilindrada }}cc</p>
+                    <p class="vehicle-card__text"><strong>Tipo:</strong> {{ vehiculo.tipo }}</p>
+                {% elif vehiculo.__class__.__name__ == 'BicicletaElectrica' %}
+                    <p class="vehicle-card__text"><strong>Batería:</strong> {{ vehiculo.capacidad_bateria }}Wh</p>
+                    <p class="vehicle-card__text"><strong>Vel. Máxima:</strong> {{ vehiculo.velocidad_maxima }} km/h</p>
+                {% endif %}
+            </div>
+            
+            <div class="vehicle-card__footer">
+                <a href="#" class="btn btn--primary">Alquilar Vehículo</a>
+            </div>
+        </div>
+        
+        {% endfor %}
+        
+    </div>
+</section>
+{% endblock %}

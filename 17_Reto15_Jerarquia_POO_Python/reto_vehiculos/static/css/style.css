@@ -1,0 +1,235 @@
+/* static/css/style.css */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- BLOQUE: main-header --- */
+.main-header {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid #e94560;
+}
+
+.main-header__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.main-header__subtitle {
+    font-size: 1.1rem;
+    color: #0f3460;
+    filter: brightness(2.5);
+}
+
+/* --- BLOQUE: main-content --- */
+.main-content {
+    flex: 1;
+    padding: 3rem 1rem;
+}
+
+.main-content__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- BLOQUE: main-footer --- */
+.main-footer {
+    background-color: #161625;
+    color: #8c8c9e;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* --- BLOQUE: catalog --- */
+.catalog__title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #1a1a2e;
+    border-left: 5px solid #e94560;
+    padding-left: 0.5rem;
+}
+
+/* --- BLOQUE: vehicle-grid --- */
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* --- BLOQUE: vehicle-card --- */
+.vehicle-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e1e8ed;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+}
+
+.vehicle-card__header {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e1e8ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vehicle-card__title {
+    font-size: 1.3rem;
+    color: #1a1a2e;
+}
+
+.vehicle-card__badge {
+    background-color: #e94560;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.vehicle-card__body {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.vehicle-card__text {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.vehicle-card__footer {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e1e8ed;
+}
+
+/* --- BLOQUE COMPONENTE: btn --- */
+.btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+/* Modificador del botón */
+.btn--primary {
+    background-color: #0f3460;
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background-color: #162447;
+}
+
+/* --- MODIFICADORES DE VEHICLE-CARD . OJO ESTO SE CONSTRUYE DINAMICAMENTE EN EL HTML Y POR ESO NO SE EN LAS CLASES--- */
+/* En este div se produce la magia:
+ <div class="vehicle-card vehicle-card--{{ vehiculo.__class__.__name__ | lower }}">
+ Sabemos que a un objeto se le puede aplicar mas de un estilo si ponemos 2 clases.
+ Fijate que el div tiene 2 clases, una super clara : class="vehicle-card
+ y la otra formada por este chorizo::after
+ vehicle-card--{{vehiculo.__class__.__name__ | lower }}
+ La primera parte,  vehicle-card-- es fija y solo falta agregar el modificador , que sea coche, motocicleta....
+ Como estamos en un for ( Ver el index.html, 
+ {% for id,vehiculo in lista_vehiculos.items() %}
+ el vehiculo va cambiando y todo este chorizo: vehiculo.__class__.__name__   devuelve el nombre de la clase ( Coche, Motocicleta, BicicletaElectrica...
+y con | lower   lo transforma en minuscula. 
+Es por eso que a cada elemento se le agregan las clases : 
+
+Como hay un if que esta procesando todas las clases en cada vuelta se crea la 2da clase
+vehicle-card vehicle-card--coche
+vehicle-card vehicle-card--motocicleta
+vehicle-card vehicle-card--bicicletaelectrica
+
+
+ */
+
+/* Modificador para Coche (Tonos azules) */
+.vehicle-card--coche {
+    border-top: 4px solid #3498db;
+}
+
+.vehicle-card--coche .vehicle-card__badge {
+    background-color: #3498db;
+}
+
+/* Modificador para Motocicleta (Tonos naranjas/gualda) */
+.vehicle-card--motocicleta {
+    border-top: 4px solid #e67e22;
+}
+
+.vehicle-card--motocicleta .vehicle-card__badge {
+    background-color: #e67e22;
+}
+
+/* Modificador para Bicicleta Eléctrica (Tonos verdes ecológicos) */
+.vehicle-card--bicicletaelectrica {
+    border-top: 4px solid #2ecc71;
+}
+
+.vehicle-card--bicicletaelectrica .vehicle-card__badge {
+    background-color: #2ecc71;
+}
+
+/* --- BLOQUE: rental-status --- */
+.rental-status {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rental-status__highlight {
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+.rental-status__link {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #f5c6cb;
+    transition: background-color 0.2s;
+}
+
+.rental-status__link:hover {
+    background-color: #f5c6cb;
+}
